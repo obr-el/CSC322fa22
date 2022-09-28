@@ -1,6 +1,7 @@
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
-camera.position.z = 45;
+var camera = new THREE.PerspectiveCamera( 90 , window.innerWidth/window.innerHeight, 0.1, 1000 );
+camera.position.z = 50;
+camera.position.y = 25;
 
 
 var renderer = new THREE.WebGLRenderer();
@@ -17,85 +18,84 @@ function addFace(verArray,hexcolor) {
 }
 
 const vertices = new Float32Array( [
-	-2.75, -2.75, -50,
-  2.75, -2.75, -50,
-  -1.7, -1.7, -5,
+	-2.75, 0, -2.75,
+  2.75, 0, -2.75,
+  -1.7, 50, -1.7,
   
-  -1.7, -1.7, -5,
-  2.75, -2.75, -50,
-  1.7, -1.7, -5,
+  -1.7,50,  -1.7,
+  2.75, 0, -2.75,
+  1.7, 50, -1.7,
 ] );
-addFace(vertices,0x800869);
+addFace(vertices,0x800869); //color: magenta
 
 const vertices2 = new Float32Array( [
-	-2.75, 2.75, -50,
-  -2.75, -2.75, -50,
-  -1.7, 1.7, -5,
+	-2.75, 0, 2.75,
+  -2.75, 0, -2.75,
+  -1.7, 50, 1.7,
   
-  -1.7, 1.7, -5,
-  -2.75, -2.75, -50,
-  -1.7, -1.7, -5,
+  -1.7, 50, 1.7,
+  -2.75, 0, -2.75,
+  -1.7, 50, -1.7,
 ] );
-addFace(vertices2,0xa8e6cf);
+addFace(vertices2,'green'); //color: green
 
 const vertices3 = new Float32Array( [
-	2.75, -2.75, -50,
-  2.75, 2.75, -50,
-  1.7, -1.7, -5,
+	2.75, 0, -2.75,
+  2.75, 0, 2.75,
+  1.7, 50, -1.7,
   
-  1.7, -1.7, -5,
-  2.75, 2.75, -50,
-  1.7, 1.7, -5,
+  1.7, 50, -1.7,
+  2.75, 0, 2.75,
+  1.7,50, 1.7
 ] );
-addFace(vertices3,0xfffe38);
+addFace(vertices3,0xfffe38); //color: yellow
 
 const vertices4 = new Float32Array( [
-	2.75, 2.75, -50,
-  -2.75, 2.75, -50,
-  1.7, 1.7, -5,
+	2.75,0, 2.75,
+  -2.75, 0, 2.75,
+  1.7, 50, 1.7,
   
-  1.7, 1.7, -5,
-  -2.75, 2.75, -50,
-  -1.7, 1.7, -5,
+  1.7, 50, 1.7,
+  -2.75, 0, 2.75,
+  -1.7, 50, 1.7
 ] );
-addFace(vertices4,0xe5e4e2);
+addFace(vertices4,"rgb(0, 0, 255)"); //color: blue
 
 const triface1 = new Float32Array( [
-	0, 0, 0,
-  -1.7, -1.7, -5,
-  1.7, -1.7, -5
+	0, 55.5, 0,
+  -1.7,50, -1.7,
+  1.7,50, -1.7,
 
 ])
-addFace(triface1,0xef2922)
+addFace(triface1,"hsl(2, 86%, 54%)") //color: red 
 
 const triface2 = new Float32Array( [
-	0, 0, 0,
-  -1.7, 1.7, -5,
-  -1.7, -1.7, -5
+	0, 55.5, 0,
+  -1.7, 50, 1.7,
+  -1.7, 50, -1.7
 
 ])
-addFace(triface2,0xd0c4d0)
+addFace(triface2,"rgb(208, 196, 208)") //color: gray
 
 const triface3 = new Float32Array( [
-	0, 0, 0,
-  1.7, -1.7, -5,
-  1.7, 1.7, -5
+	0, 55.5, 0,
+  1.7, 50, -1.7,
+  1.7, 50, 1.7
 
 ])
-addFace(triface3,0x8b37e4)
+addFace(triface3,0x8b37e4) //color: purple
 
 const triface4 = new Float32Array( [
-	0, 0, 0,
-  1.7, 1.7, -5,
-  -1.7, 1.7, -5
+	0, 55.5, 0,
+  1.7, 50, 1.7,
+  -1.7, 50, 1.7
 
 ])
-addFace(triface4,0xcef310)
+addFace(triface4,0xcef310) //color: light green
 
-scene.rotation.x=-1;
 var animate = function () {
 	requestAnimationFrame( animate );
-	scene.rotation.z += 0.01;
+	scene.rotation.y += 0.01;
 
 	renderer.render( scene, camera );
 	
