@@ -1,0 +1,105 @@
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement )
+
+function addFace(verArray,hexcolor) {
+  const geometry = new THREE.BufferGeometry();
+  const vertices = verArray;
+  geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+  const material = new THREE.MeshBasicMaterial( { color: hexcolor } );
+  const mesh = new THREE.Mesh( geometry, material );
+  scene.add(mesh);
+}
+
+function addVert(inArray,addArray){
+	for(let m = 0; m < 3; m++){
+  	inArray.push(addArray[m]);
+	}
+}
+
+const ver0 = [-1,1,-1];
+const ver1 = [1,1,-1];
+const ver2 = [-1,-1,-1];
+const ver3 = [1,-1,-1];
+const ver4 = [-1,1,1];
+const ver5 = [1,1,1];
+const ver6 = [-1,-1,1];
+const ver7 = [1,-1,1];
+
+
+tempArray0 = [];
+addVert(tempArray0,ver1);
+addVert(tempArray0,ver0);
+addVert(tempArray0,ver5);
+addVert(tempArray0,ver5);
+addVert(tempArray0,ver0);
+addVert(tempArray0,ver4);
+const face0 = Float32Array.from(tempArray0);
+addFace(face0,0x800869); //color: magenta
+
+tempArray1 = [];
+addVert(tempArray1,ver3);
+addVert(tempArray1,ver2);
+addVert(tempArray1,ver1);
+addVert(tempArray1,ver1);
+addVert(tempArray1,ver2);
+addVert(tempArray1,ver0);
+const face1 = Float32Array.from(tempArray1);
+addFace(face1,'green'); //color: green
+
+tempArray2 = [];
+addVert(tempArray2,ver2);
+addVert(tempArray2,ver6);
+addVert(tempArray2,ver0);
+addVert(tempArray2,ver0);
+addVert(tempArray2,ver6);
+addVert(tempArray2,ver4);
+const face2 = Float32Array.from(tempArray2);
+addFace(face2,0xfffe38); //color: yellow
+
+tempArray3 = [];
+addVert(tempArray3,ver7);
+addVert(tempArray3,ver3);
+addVert(tempArray3,ver5);
+addVert(tempArray3,ver5);
+addVert(tempArray3,ver3);
+addVert(tempArray3,ver1);
+const face3 = Float32Array.from(tempArray3);
+addFace(face3,"rgb(0, 0, 255)"); //color: blue
+
+tempArray4 = [];
+addVert(tempArray4,ver6);
+addVert(tempArray4,ver7);
+addVert(tempArray4,ver4);
+addVert(tempArray4,ver4);
+addVert(tempArray4,ver7);
+addVert(tempArray4,ver5);
+const face4 = Float32Array.from(tempArray4);
+addFace(face4,"hsl(2, 86%, 54%)") //color: red 
+
+tempArray5 = [];
+addVert(tempArray5,ver2);
+addVert(tempArray5,ver3);
+addVert(tempArray5,ver6);
+addVert(tempArray5,ver6);
+addVert(tempArray5,ver3);
+addVert(tempArray5,ver7);
+const face5 = Float32Array.from(tempArray5);
+addFace(face5,"rgb(208, 196, 208)") //color: gray
+
+
+
+camera.position.z = 5;
+
+var animate = function () {
+	requestAnimationFrame( animate );
+	scene.rotation.y += 0.01;
+	scene.rotation.x += 0.01
+	renderer.render( scene, camera );
+	
+};
+
+animate();
