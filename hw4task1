@@ -1,0 +1,95 @@
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement )
+
+function addFace(verArray,hexcolor) {
+  const geometry = new THREE.BufferGeometry();
+  const vertices = verArray;
+  geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+  const material = new THREE.MeshBasicMaterial( { color: hexcolor } );
+  const mesh = new THREE.Mesh( geometry, material );
+  scene.add(mesh);
+}
+
+const face1 = new Float32Array( [
+	1,1,-1,
+  -1,1,-1,
+  1,1,1,
+  
+  1,1,1,
+  -1,1,-1,
+  -1,1,1
+] );
+addFace(face1,0x800869); //color: magenta
+
+const face2 = new Float32Array( [
+	1,-1,-1,
+  -1,-1,-1,
+  1,1,-1,
+  
+  1,1,-1,
+  -1,-1,-1,
+  -1,1,-1,
+] );
+addFace(face2,'green'); //color: green
+
+const face3 = new Float32Array( [
+	-1,-1,-1,
+  -1,-1,1,
+  -1,1,-1,
+  
+  -1,1,-1,
+  -1,-1,1,
+  -1,1,1
+] );
+addFace(face3,0xfffe38); //color: yellow
+
+const face4 = new Float32Array( [
+	1,-1,1,
+  1,-1,-1,
+  1,1,1,
+  
+  1,1,1,
+  1,-1,-1,
+  1,1,-1
+] );
+addFace(face4,"rgb(0, 0, 255)"); //color: blue
+
+const face5 = new Float32Array( [
+	-1,-1,1,
+  1,-1,1,
+  -1,1,1,
+  
+  -1,1,1,
+  1,-1,1,
+  1,1,1
+
+])
+addFace(face5,"hsl(2, 86%, 54%)") //color: red 
+
+const face6 = new Float32Array( [
+	-1,-1,-1,
+  1,-1,-1,
+  -1,-1,1,
+  
+  -1,-1,1,
+  1,-1,-1,
+  1,-1,1
+
+])
+addFace(face6,"rgb(208, 196, 208)") //color: gray
+
+camera.position.z = 5;
+
+var animate = function () {
+	requestAnimationFrame( animate );
+	scene.rotation.y += 0.01;
+	scene.rotation.x += 0.01
+	renderer.render( scene, camera );
+	
+};
+
+animate();
