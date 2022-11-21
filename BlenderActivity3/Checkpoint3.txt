@@ -1,0 +1,1 @@
+The smooth render requires more time to process. The sphere now has a smooth surface, rather than a surface made of many flat faces.
