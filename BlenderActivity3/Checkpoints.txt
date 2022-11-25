@@ -1,2 +1,9 @@
 1.3) The smooth render requires more time to process. The sphere now has a smooth surface, rather than a surface made of many flat faces.
 1.6) Subdivision flat shading looks almost the same as smooth shading. There is still a noticably rougher surface, but less so.
+2.2) X=1036 Y=649
+     1000 W: R=0.61608, G=0.61608, B=0.61608
+      250 W: R=0.17927, G=0.17927, B=0.17927
+      A higher light power results in brighter color.
+2.4) The light appears significantly brighter when closer.
+2.6) The area light makes the object look more washed out. The shadow is smaller in the render for 2.5 and light appears to have reflected from the plane onto the bottom of the sphere.
+4) For the first render, I used the glossy setting on the plane, the toon setting on the sphere, and flat shading. For the second, I used the velvet setting on the plane, the glass setting on the sphere, and flat shading. For the third, I used the subsurface scattering setting on the plane, the transparent setting on the sphere, and flat shading. The light is scattered differently to suggest different material properties. For example, the glass sphere was shiny and reflective, but it was also transparent and let some light through without reflecting it.
