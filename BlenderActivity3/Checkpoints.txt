@@ -6,4 +6,7 @@
       A higher light power results in brighter color.
 2.4) The light appears significantly brighter when closer.
 2.6) The area light makes the object look more washed out. The shadow is smaller in the render for 2.5 and light appears to have reflected from the plane onto the bottom of the sphere.
-4) For the first render, I used the glossy setting on the plane, the toon setting on the sphere, and flat shading. For the second, I used the velvet setting on the plane, the glass setting on the sphere, and flat shading. For the third, I used the subsurface scattering setting on the plane, the transparent setting on the sphere, and flat shading. The light is scattered differently to suggest different material properties. For example, the glass sphere was shiny and reflective, but it was also transparent and let some light through without reflecting it.
+4) For the first render, I used the glossy setting on the plane, the toon setting on the sphere, and flat shading.
+ For the second, I used the velvet setting on the plane, the glass setting on the sphere, and flat shading. 
+ For the third, I used the subsurface scattering setting on the plane, the transparent setting on the sphere, and flat shading.
+ The light is scattered differently to suggest different material properties. For example, the glass sphere was shiny and reflective, but it was also transparent and let some light through without reflecting it.
