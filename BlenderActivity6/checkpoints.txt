@@ -1,1 +1,2 @@
 Checkpoint 1 is the UV map of the low-poly human I made with geometry modeling for Activity 5.
+Using displacement gives the sphere a more "physical" texture. The object appears to actually change shape.
